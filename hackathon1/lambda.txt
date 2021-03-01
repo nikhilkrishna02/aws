@@ -1,0 +1,7 @@
+arn:aws:iam::969982578740:role/lambda_function_to_invoke_get_post
+
+lambda_demo
+
+arn:aws:iam::969982578740:role/lambda_invoke_function_2
+
+lambda_execute 

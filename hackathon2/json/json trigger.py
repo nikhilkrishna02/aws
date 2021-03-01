@@ -1,5 +1,3 @@
-json
-
 import boto3
 import json 
 
@@ -9,11 +7,11 @@ dynamodb = boto3.resource('dynamodb')
 def lambda_handler(event, context):
     bucket = event['Records'][0]['s3']['bucket']['name']
     json_filename = event['Records'][0]['s3']['object']['key']
-    #json_object = s3_client.get_object(Bucket=bucket, Key=json_filename)
-    #jsonFileReader = json_object["Body"].read()
-    #jsonDict = json.loads(jsonFileReader)
-    #table = dynamodb.Table('employee')
-    #table.put_item(Item = jsonDict)
+    json_object = s3_client.get_object(Bucket=bucket, Key=json_filename)
+    jsonFileReader = json_object["Body"].read()
+    jsonDict = json.loads(jsonFileReader)
+    table = dynamodb.Table('employee')
+    table.put_item(Item = jsonDict)
     print(bucket)
     print(json_filename)
     return "congrats"
